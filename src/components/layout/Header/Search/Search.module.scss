@@ -1,0 +1,28 @@
+.search {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    input {
+        background: #27272A;
+        color: #F5F5F4;
+        border: none;
+        padding: .5rem;
+        width: 100%;
+        &:focus {
+            outline: 1px solid #06B6D4;
+
+        }
+    }
+    .iconSearch {
+        border-top-left-radius: .5rem;
+        border-bottom-left-radius: .5rem;
+        background: #27272A;
+        width: 2rem;
+        height: 2rem;
+        font-size: 1rem;
+        color: #F5F5F4;
+    }
+    .iconClose {
+
+    }
+}

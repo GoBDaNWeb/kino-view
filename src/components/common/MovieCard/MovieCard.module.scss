@@ -1,0 +1,63 @@
+.card {
+    cursor: pointer;
+    transition: 300ms ease;
+    margin-bottom: 1rem;
+    position: relative;
+    width: 100%;
+    &:hover {
+        transform: translateY(-15px);
+    }
+    &:hover > .imgWrapper {
+        border-radius: 1rem;
+    }
+    &:hover > .imgWrapper > span >.image {
+        transform: scale(1.1);
+    }
+    .ratingGood {
+        position: absolute;
+        z-index: 998;
+        padding: .2rem 1.5rem;
+        background: #22C55E;
+        border-bottom-right-radius: 1rem;
+        font-size: 1.6rem;
+        font-weight: bold;
+    }
+    .ratingNormal {
+        position: absolute;
+        z-index: 998;
+        padding: .2rem 1.5rem;
+        background: #EAB308;
+        border-bottom-right-radius: 1rem;
+        font-size: 1.6rem;
+        font-weight: bold;
+    }
+    .imgWrapper {
+        width: 100%;
+        height: 400px;
+        background: #171717;
+        transition: 300ms ease;
+        overflow: hidden;
+        display: block;
+        position: relative;
+        border-radius: .4rem;
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);  
+        .image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 300ms ease;
+            display: block;
+            border-radius: .4rem;
+            
+        }
+    }
+    
+    .content {
+        h5 {
+            font-size: 1.5rem;
+        }
+        span {
+            font-size: 1.2rem;
+        }
+    }
+}

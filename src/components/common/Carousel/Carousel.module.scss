@@ -1,0 +1,35 @@
+.top {
+	.personTitle {
+		font-size: 2rem;
+		span {
+			color: #A8A29E;
+			font-weight: normal;
+		}
+  	}
+	.btns {
+		margin-top: 1rem;
+		display: flex;
+		gap: 1rem;
+	}
+}
+.swiper {
+    width: 100%;
+    height: 100%;
+	.swiper-wrapper {
+		margin-top: 1rem;
+	}
+	
+    img {
+		width: 200px;
+		height: 300px;
+		border-radius: 1rem;
+    }
+}
+
+.empty {
+	text-align: center;
+	font-size: 2.2rem;
+	color: #57534E;
+}
+  
+  

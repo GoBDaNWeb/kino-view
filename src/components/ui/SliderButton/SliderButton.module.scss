@@ -1,0 +1,36 @@
+.btn {
+    background: none;
+    font-size: 2rem;
+    border-radius: 9999px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+    color: #E7E5E4;
+    background: #18181B;
+    border: none;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    .iconPrev {
+        transition: 300ms ease;
+    }
+    .iconNext {
+        transition: 300ms ease;
+    }
+    &:hover > .iconPrev {
+        transition: 300ms ease;
+        transform: translateX(-0.6rem);
+        color: white;
+    }
+    &:hover > .iconNext {
+        transition: 300ms ease;
+        transform: translateX(0.6rem);
+        color: white;
+    }
+    &:disabled {
+        background: #222225;
+        color: #7c7c7c;
+        pointer-events: none;
+    }
+}

@@ -1,0 +1,24 @@
+.footer {
+    padding: 0 15rem;
+    height: 8rem;
+    background: #18181B;
+    box-shadow: 0 -4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    margin-top: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .logo {
+        display: flex;
+        align-items: center;
+        font-size: 1.8rem;
+        font-weight: bold;
+        cursor: pointer;
+        user-select: none;
+        span {
+            color: #06B6D4;
+        }
+    }
+    span {
+        color: #A8A29E;
+    }
+}

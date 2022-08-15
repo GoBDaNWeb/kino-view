@@ -15,9 +15,13 @@ import styles from './SearchDropdown.module.scss'
 import SearchMovieCard from './SearchMovieCard'
 
 const SearchDropDown = () => {
-    const {searchValue, searchType} = useTypedSelector(state => state.search)
+    const {searchValue, searchType, hiddenSearchedMovies} = useTypedSelector(state => state.search)
     const {isFetching, data} = useGetMoviesBySearchQuery({query: searchValue, type: searchType})
-    const classcondition = searchValue?.length > 0 ? `${styles.visible} ${styles.dropdown}` : `${styles.hidden} ${styles.dropdown}`
+    const classcondition = searchValue?.length > 0 
+        && hiddenSearchedMovies 
+        ? `${styles.visible} ${styles.dropdown}` 
+        : `${styles.hidden} ${styles.dropdown}`
+
     return (
         <div className={classcondition}>
             {
@@ -29,7 +33,7 @@ const SearchDropDown = () => {
                 ) : (
                     <>
                         {
-                            data?.docs.map(movie => (
+                            data?.docs?.map(movie => (
                                 <SearchMovieCard key={movie.id} movie={movie}/>
                             ))
                         }

@@ -2,7 +2,8 @@ import {createSlice} from '@reduxjs/toolkit'
 
 const initialState = {
     searchValue: '',
-    searchType: '1-4'
+    searchType: '1-4',
+    hiddenSearchedMovies: false
 }
 
 const searchMovieSlice = createSlice({
@@ -15,12 +16,16 @@ const searchMovieSlice = createSlice({
         setSearchType: (state, action) => {
             state.searchType = action.payload
         },
+        handleHiddenSearchedMovies: (state, action) => {
+            state.hiddenSearchedMovies = action.payload
+        }
     }
 })
 
 export const {
     setSearchValue,
-    setSearchType
+    setSearchType,
+    handleHiddenSearchedMovies
 } = searchMovieSlice.actions
 
 export const searchMovieReducer = searchMovieSlice.reducer

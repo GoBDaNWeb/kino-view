@@ -1,13 +1,10 @@
 // * react/next 
-import React, {useEffect, useState} from 'react'
+import React, {useEffect} from 'react'
 import { useForm } from 'react-hook-form';
 
 // * redux 
 import { useDispatch } from 'react-redux'
-import { setSearchValue, setSearchType } from 'store/slices/searchMovieSlice'
-
-// * selectors 
-import { useGetMoviesBySearchQuery } from 'services/KinoviewService';
+import { setSearchValue, setSearchType, handleHiddenSearchedMovies} from 'store/slices/searchMovieSlice'
 
 // * hooks 
 import {useDebounce} from 'hooks/useDebounce'
@@ -20,15 +17,29 @@ import styles from './SearchForm.module.scss'
 
 
 const SearchForm = () => {
+    const handleVisibleSearchList = (boolean: boolean) => {
+        dispatch(handleHiddenSearchedMovies(boolean))
+    }
+
     const { register, setValue, watch} = useForm({
-        mode: 'onChange'
+        mode: 'all'
     });
+
+    register('Search', { 
+        onBlur: () => handleVisibleSearchList(false) 
+    })
+    register('Select', { 
+        onBlur: () => handleVisibleSearchList(false) 
+    })
+
     const WatchSelect = watch('Select', 'Что угодно')
     const WatchSearch = watch('Search')
+
     const dispatch = useDispatch()
 
     const debounced = useDebounce(WatchSearch)
 
+   
     const searhType = () => {
         switch(WatchSelect) {
             case 'Что Угодно':
@@ -56,7 +67,11 @@ const SearchForm = () => {
 
     return (
         <form className={styles.searchForm}>
-            <select className={styles.select} {...register("Select")}>
+            <select 
+                onFocus={() => handleVisibleSearchList(true)} 
+                className={styles.select} 
+                {...register("Select")}
+            >
                 <option 
                     className={styles.optionItem} 
                     value="Что Угодно"
@@ -89,10 +104,11 @@ const SearchForm = () => {
                 </option>
             </select>
             <label className={styles.searchInput}>
-                <input 
+                <input
+                    onFocus={() => handleVisibleSearchList(true)}
                     type="search"
                     placeholder={`Найти ${WatchSelect}`}
-                    {...register("Search", {})}
+                    {...register("Search")}
                 />
                 {
                     WatchSearch

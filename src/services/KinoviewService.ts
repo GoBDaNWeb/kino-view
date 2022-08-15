@@ -37,18 +37,18 @@ export const kinoviewAPI = createApi({
             query: () => `movie?&search[]=1960-2022&field[]=year&search[]=1-10&field=rating.kp&search=!null&field=name&search=4&field=typeNumber&search=!null&field=votes.kp&sortField=year&sortType=-1&limit=12&page=1&token=BGGATXC-SC6M1QJ-QH36R71-HFMCSMW`
         }),
         //
-        getMoviesBySearch: build.query<IMovies, number>({
-            query: id => `movie?search=${id}&field=id&token=BGGATXC-SC6M1QJ-QH36R71-HFMCSMW`
+        getMoviesBySearch: build.query<IMovies, any>({
+            query: ({query, type}) => `movie?search=${query}&field=name&limit=10&sortField=year&sortType=-1&field=typeNumber&search=${type}&isStrict=false&token=BGGATXC-SC6M1QJ-QH36R71-HFMCSMW`
         }),
         getReviews: build.query<IReviews, any>({
             query: ({id, limit}) => `review?search=${id}&field=movieId&limit=${limit}&token=BGGATXC-SC6M1QJ-QH36R71-HFMCSMW`
         }),
         getPersonById: build.query<IPerson, string | string[] | undefined>({
-            query: id => `/person?search=${id}&field=id&token=BGGATXC-SC6M1QJ-QH36R71-HFMCSMW`
+            query: id => `person?search=${id}&field=id&token=BGGATXC-SC6M1QJ-QH36R71-HFMCSMW`
         }),
         getMoviesById: build.query<IMovies, any>({
             query: ({query, limit}) =>
-              `/movie?${query}&limit=${limit}&token=BGGATXC-SC6M1QJ-QH36R71-HFMCSMW`
+              `movie?${query}&limit=${limit}&token=BGGATXC-SC6M1QJ-QH36R71-HFMCSMW`
         }),
     })
 });
@@ -66,6 +66,7 @@ export const {
     useGetReviewsQuery,
     useGetPersonByIdQuery,
     useGetMoviesByIdQuery,
+    useGetMoviesBySearchQuery
 } = kinoviewAPI;
 
 export const {
@@ -80,5 +81,6 @@ export const {
     getAnime,
     getReviews,
     getPersonById,
-    getMoviesById
+    getMoviesById,
+    getMoviesBySearch
   } = kinoviewAPI.endpoints;

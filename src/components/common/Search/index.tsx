@@ -1,22 +1,19 @@
-// * icons 
-import {BiSearchAlt} from 'react-icons/bi'
-import {AiOutlineClose} from 'react-icons/ai'
+// * redux
+import { useTypedSelector } from 'store/store'
 
 // * styles 
 import styles from './Search.module.scss'
-import { Transform } from 'stream'
+
+// * components 
+import SearchForm from './SearchForm'
+import SearchDropDown from './SearchDropdown'
 
 const Search = () => {
+    
     return (
         <div className={styles.search}>
-            <label className={styles.searchInput}>
-                <input type="text" placeholder='Найти кино'/>
-                <AiOutlineClose className={styles.iconClose}/>
-            </label>
-            <button  className={styles.btn}>
-                Найти
-                <BiSearchAlt className={styles.iconSearch}/>
-            </button>
+            <SearchForm/>
+            <SearchDropDown/>
         </div>
     )
 }

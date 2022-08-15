@@ -13,20 +13,10 @@
     &:hover > .imgWrapper > span >.image {
         transform: scale(1.1);
     }
-    .ratingGood {
+    .rating {
         position: absolute;
-        z-index: 998;
+        z-index: 100;
         padding: .2rem 1.5rem;
-        background: #22C55E;
-        border-bottom-right-radius: 1rem;
-        font-size: 1.6rem;
-        font-weight: bold;
-    }
-    .ratingNormal {
-        position: absolute;
-        z-index: 998;
-        padding: .2rem 1.5rem;
-        background: #EAB308;
         border-bottom-right-radius: 1rem;
         font-size: 1.6rem;
         font-weight: bold;

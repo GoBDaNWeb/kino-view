@@ -2,6 +2,7 @@ import {configureStore, PreloadedState} from "@reduxjs/toolkit";
 import {createWrapper} from "next-redux-wrapper";
 import {kinoviewAPI} from "services/KinoviewService";
 import { loadMoreReducer } from "./slices/loadMoreSlice";
+import { searchMovieReducer } from "./slices/searchMovieSlice";
 import {useMemo} from 'react'
 import {TypedUseSelectorHook, useSelector} from "react-redux";
 
@@ -11,6 +12,7 @@ export const initStore = (preloadedState = {}) => {
   return configureStore({
     reducer: {
       load: loadMoreReducer,
+      search: searchMovieReducer,
       [kinoviewAPI.reducerPath]: kinoviewAPI.reducer,
     },
     preloadedState,

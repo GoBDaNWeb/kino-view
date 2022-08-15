@@ -25,3 +25,19 @@ ul {
 * {
   box-sizing: border-box;
 }
+
+.badRating {
+  background: #EF4444;
+}
+
+.normalRating {
+  background: #EAB308;
+}
+
+.goodRating {
+  background: #22C55E;
+}
+
+.defaultRating {
+  background: #6B7280;
+}

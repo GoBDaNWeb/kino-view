@@ -1,4 +1,4 @@
-// * react/nexzt 
+// * react/next 
 import React from 'react'
 import Link from 'next/link'
 import {IPersonItemProps} from './types'

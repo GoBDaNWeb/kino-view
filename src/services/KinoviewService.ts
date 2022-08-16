@@ -1,4 +1,5 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
+import { AnyMxRecord } from 'dns';
 import {IMovie, IMovies, IReviews, IPerson} from './types'
 
 export const kinoviewAPI = createApi({
@@ -21,20 +22,20 @@ export const kinoviewAPI = createApi({
             query: id => `movie?search=${id}&field=id&token=BGGATXC-SC6M1QJ-QH36R71-HFMCSMW`
         }),
         // add genres filter -> /movie?${genres}
-        getFilms: build.query<IMovies, void>({
-            query: () => `movie?&search[]=1960-2022&field[]=year&search[]=1-10&field=rating.kp&search=!null&field=name&search=1&field=typeNumber&search=!null&field=votes.kp&sortField=year&sortType=-1&limit=12&page=1&token=BGGATXC-SC6M1QJ-QH36R71-HFMCSMW`
+        getFilms: build.query<IMovies, any>({
+            query: filters => `movie?${filters.genres}search[]=${filters.year}&field[]=year&search[]=${filters.rating}&field=rating.kp&search=${filters.search}&field=name&isStrict=false&search=1&field=typeNumber&search=!null&field=votes.kp&sortField=year&sortType=-1&limit=10&token=BGGATXC-SC6M1QJ-QH36R71-HFMCSMW`
         }),
         //
-        getSerials: build.query<IMovies, void>({
-            query: () => `movie?&search[]=1960-2022&field[]=year&search[]=1-10&field=rating.kp&search=!null&field=name&search=2&field=typeNumber&search=!null&field=votes.kp&sortField=year&sortType=-1&limit=12&page=1&token=BGGATXC-SC6M1QJ-QH36R71-HFMCSMW`
+        getSerials: build.query<IMovies, any>({
+            query: filters => `movie?${filters.genres}search[]=${filters.year}&field[]=year&search[]=${filters.rating}&field=rating.kp&search=${filters.search}&field=name&isStrict=false&search=2&field=typeNumber&search=!null&field=votes.kp&sortField=year&sortType=-1&limit=10&token=BGGATXC-SC6M1QJ-QH36R71-HFMCSMW`
         }),
         //
-        getCartoons: build.query<IMovies, void>({
-            query: () => `movie?&search[]=1960-2022&field[]=year&search[]=1-10&field=rating.kp&search=!null&field=name&search=3&field=typeNumber&search=!null&field=votes.kp&sortField=year&sortType=-1&limit=12&page=1&token=BGGATXC-SC6M1QJ-QH36R71-HFMCSMW`
+        getCartoons: build.query<IMovies, any>({
+            query: filters => `movie?${filters.genres}search[]=${filters.year}&field[]=year&search[]=${filters.rating}&field=rating.kp&search=${filters.search}&field=name&isStrict=false&search=3&field=typeNumber&search=!null&field=votes.kp&sortField=year&sortType=-1&limit=10&token=BGGATXC-SC6M1QJ-QH36R71-HFMCSMW`
         }),
         //
-        getAnime: build.query<IMovies, void>({
-            query: () => `movie?&search[]=1960-2022&field[]=year&search[]=1-10&field=rating.kp&search=!null&field=name&search=4&field=typeNumber&search=!null&field=votes.kp&sortField=year&sortType=-1&limit=12&page=1&token=BGGATXC-SC6M1QJ-QH36R71-HFMCSMW`
+        getAnime: build.query<IMovies, any>({
+            query: filters => `movie?${filters.genres}search[]=${filters.year}&field[]=year&search[]=${filters.rating}&field=rating.kp&search=${filters.search}&field=name&isStrict=false&search=4&field=typeNumber&search=!null&field=votes.kp&sortField=year&sortType=-1&limit=10&token=BGGATXC-SC6M1QJ-QH36R71-HFMCSMW`
         }),
         //
         getMoviesBySearch: build.query<IMovies, any>({
@@ -49,6 +50,11 @@ export const kinoviewAPI = createApi({
         getMoviesById: build.query<IMovies, any>({
             query: ({query, limit}) =>
               `movie?${query}&limit=${limit}&token=BGGATXC-SC6M1QJ-QH36R71-HFMCSMW`
+        }),
+        // search[]=${genre}&field[]=genres.name&
+        getMoviesByFilters: build.query<IMovies, any>({
+            query: ({filters}) =>
+              `movie?${filters.genre}search[]=${filters.years}&field[]=year&search[]=${filters.rating}&field=rating.kp&search=${filters.serach}&field=name&isStrict=false&search=1&field=typeNumber&search=!null&field=votes.kp&sortField=year&sortType=1&limit=10&token=BGGATXC-SC6M1QJ-QH36R71-HFMCSMW`
         }),
     })
 });
@@ -66,7 +72,8 @@ export const {
     useGetReviewsQuery,
     useGetPersonByIdQuery,
     useGetMoviesByIdQuery,
-    useGetMoviesBySearchQuery
+    useGetMoviesBySearchQuery,
+    useGetMoviesByFiltersQuery,
 } = kinoviewAPI;
 
 export const {
@@ -82,5 +89,6 @@ export const {
     getReviews,
     getPersonById,
     getMoviesById,
-    getMoviesBySearch
+    getMoviesBySearch,
+    getMoviesByFilters
   } = kinoviewAPI.endpoints;

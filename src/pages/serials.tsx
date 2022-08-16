@@ -17,8 +17,8 @@ const SerialsPage: NextPage = () => {
 export const getStaticProps: GetStaticProps = async () => {
     const store = initStore()
     const state = store.getState()
-
-    await store.dispatch(getSerials.initiate())
+    const {filters} = state.filter;
+    await store.dispatch(getSerials.initiate(filters))
     return {props: {initialReduxState: store.getState()}}
 }
 

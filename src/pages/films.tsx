@@ -17,8 +17,8 @@ const FilmsPage: NextPage = () => {
 export const getStaticProps: GetStaticProps = async () => {
     const store = initStore()
     const state = store.getState()
-
-    await store.dispatch(getFilms.initiate())
+    const {filters} = state.filter;
+    await store.dispatch(getFilms.initiate(filters))
     
     return {props: { initialReduxState: store.getState() } };
 }

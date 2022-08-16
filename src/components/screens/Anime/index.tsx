@@ -1,3 +1,6 @@
+// * redux
+import { useTypedSelector } from 'store/store'
+
 // * services 
 import { useGetAnimeQuery } from 'services/KinoviewService'
 
@@ -6,18 +9,21 @@ import styles from './Anime.module.scss'
 
 // * components 
 import MovieCard from 'components/common/MovieCard'
+import Filters from 'components/common/Filters'
 
 const Anime = () => {
-    const {isLoading, data} = useGetAnimeQuery()
+    const {filters} = useTypedSelector(state => state.filter)
+    const {isLoading, isFetching, data} = useGetAnimeQuery(filters)
 
     return (
         <div className={styles.anime}>
             <h3>
-                Аниме
+                Найди Аниме По Вкусу
             </h3>
+            <Filters/>
             <div className={styles.animeList}>
                 {
-                    isLoading
+                    isLoading || isFetching
                     ? (<div>Loading...</div>)
                     : data?.docs?.map(movie => (
                         <MovieCard key={movie.id} movie={movie}/>

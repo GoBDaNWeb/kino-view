@@ -1,3 +1,6 @@
+// * redux 
+import { useTypedSelector } from 'store/store'
+
 // * services 
 import { useGetSerialsQuery } from 'services/KinoviewService'
 
@@ -6,18 +9,21 @@ import styles from './Serials.module.scss'
 
 // * components 
 import MovieCard from 'components/common/MovieCard'
+import Filters from 'components/common/Filters'
 
 const Serials = () => {
-    const {isLoading, data} = useGetSerialsQuery()
+    const {filters} = useTypedSelector(state => state.filter)
+    const {isLoading, isFetching, data} = useGetSerialsQuery(filters)
 
     return (
         <div className={styles.serials}>
             <h3>
-                Сериалы
+                Найди Сериалы По Вкусу
             </h3>
+            <Filters/>
             <div className={styles.serialsList}>
                 {
-                    isLoading
+                    isLoading || isFetching
                     ? (<div>Loading...</div>)
                     : data?.docs?.map(movie => (
                         <MovieCard key={movie.id} movie={movie}/>

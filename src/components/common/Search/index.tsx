@@ -2,8 +2,8 @@
 import styles from './Search.module.scss'
 
 // * components 
-import SearchForm from './SearchForm'
-import SearchDropDown from './SearchDropdown'
+import SearchForm from './components/SearchForm'
+import SearchDropDown from './components/SearchDropdown'
 
 const Search = () => {
     return (

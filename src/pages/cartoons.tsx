@@ -17,8 +17,8 @@ const CartoonsPage: NextPage = () => {
 export const getStaticProps: GetStaticProps = async () => {
     const store = initStore()
     const state = store.getState()
-
-    await store.dispatch(getCartoons.initiate())
+    const {filters} = state.filter;
+    await store.dispatch(getCartoons.initiate(filters))
     return {props: {initialReduxState: store.getState()}}
 }
 

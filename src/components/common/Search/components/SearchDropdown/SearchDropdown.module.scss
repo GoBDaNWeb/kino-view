@@ -12,6 +12,9 @@
     flex-direction: column;
     overflow-y: auto;
     transition: 300ms ease;
+    .loading {
+        justify-content: center;
+    }
 }
 
 .visible {

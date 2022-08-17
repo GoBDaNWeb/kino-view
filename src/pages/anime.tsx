@@ -18,7 +18,8 @@ export const getStaticProps: GetStaticProps = async () => {
     const store = initStore()
     const state = store.getState()
     const {filters} = state.filter;
-    await store.dispatch(getAnime.initiate(filters))
+    const {page} = state.paginate;
+    await store.dispatch(getAnime.initiate({filters, page}))
     return {props: {initialReduxState: store.getState()}}
 }
 

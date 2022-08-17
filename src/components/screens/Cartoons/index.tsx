@@ -1,3 +1,6 @@
+// * react/next 
+import { useEffect } from 'react'
+
 // * redux
 import { useTypedSelector } from 'store/store'
 
@@ -10,10 +13,18 @@ import styles from './Cartoons.module.scss'
 // * components 
 import MovieCard from 'components/common/MovieCard'
 import Filters from 'components/common/Filters'
+import Pagination from 'components/common/Pagination'
+import Loader from 'components/ui/Loader'
 
 const Cartoons = () => {
     const {filters} = useTypedSelector(state => state.filter)
-    const {isLoading, isFetching, data} = useGetCartoonsQuery(filters)
+    const {page} = useTypedSelector(state => state.paginate)
+
+    const {isLoading, refetch, isFetching, data} = useGetCartoonsQuery({filters, page})
+
+    useEffect(() => {
+        refetch()
+    }, [page])
 
     return (
         <div className={styles.cartoons}>
@@ -21,15 +32,20 @@ const Cartoons = () => {
                 Найди Мультфильмы По Вкусу
             </h3>
             <Filters/>
-            <div className={styles.cartoonsList}>
-                {
-                    isLoading || isFetching
-                    ? (<div>Loading...</div>)
-                    : data?.docs?.map(movie => (
-                        <MovieCard key={movie.id} movie={movie}/>
-                    ))
-                }
-            </div>
+            {
+                isLoading || isFetching
+                ? (<Loader/>)
+                : (
+                    <div className={styles.cartoonsList}>
+                        {
+                            data?.docs?.map(movie => (
+                                <MovieCard key={movie.id} movie={movie}/>
+                            ))
+                        }
+                    </div>
+                )
+            }
+            <Pagination totalPages={data?.pages}/>
         </div>
     )
 }

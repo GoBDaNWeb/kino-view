@@ -140,7 +140,8 @@ export interface IMovie {
 }
 
 export interface IMovies {
-    docs: IMovie[]
+    docs: IMovie[],
+    pages?: number
 }
 
 interface IReview {

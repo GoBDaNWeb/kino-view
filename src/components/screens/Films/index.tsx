@@ -1,3 +1,6 @@
+// * react/next 
+import {useEffect} from 'react'
+
 // * redux 
 import {useTypedSelector} from 'store/store';
 
@@ -10,10 +13,17 @@ import styles from './Films.module.scss'
 // * components 
 import MovieCard from 'components/common/MovieCard'
 import Filters from 'components/common/Filters'
+import Pagination from 'components/common/Pagination';
+import Loader from 'components/ui/Loader';
 
 const Films = () => {
     const {filters} = useTypedSelector(state => state.filter)
-    const {isLoading, isFetching, data} = useGetFilmsQuery(filters)
+    const {page} = useTypedSelector(state => state.paginate)
+    const {isLoading, refetch, isFetching, data} = useGetFilmsQuery({filters, page})   
+
+    useEffect(() => {
+        refetch()
+    }, [page])
 
     return (
         <div className={styles.films}>
@@ -21,15 +31,22 @@ const Films = () => {
                 Найди Фильмы По Вкусу
             </h3>
             <Filters/>
-            <div className={styles.filmsList}>
-                {
-                    isLoading || isFetching
-                    ? (<div>Loading...</div>)
-                    : data?.docs?.map(movie => (
-                        <MovieCard key={movie.id} movie={movie}/>
-                    ))
-                }
-            </div>
+            {
+                isLoading || isFetching
+                ? (<Loader/>)
+                : (
+                    <div className={styles.filmsList}>
+                        {
+                            data?.docs?.map(movie => (
+                                <MovieCard key={movie.id} movie={movie}/>
+                            ))
+                        }
+                    </div>
+                )
+            }
+            <Pagination 
+                totalPages={data?.pages}
+            />
         </div>
     )
 }

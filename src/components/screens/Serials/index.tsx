@@ -1,3 +1,6 @@
+// * react/next 
+import { useEffect } from 'react'
+
 // * redux 
 import { useTypedSelector } from 'store/store'
 
@@ -10,10 +13,18 @@ import styles from './Serials.module.scss'
 // * components 
 import MovieCard from 'components/common/MovieCard'
 import Filters from 'components/common/Filters'
+import Pagination from 'components/common/Pagination';
+import Loader from 'components/ui/Loader'
 
 const Serials = () => {
     const {filters} = useTypedSelector(state => state.filter)
-    const {isLoading, isFetching, data} = useGetSerialsQuery(filters)
+    const {page} = useTypedSelector(state => state.paginate)
+
+    const {isLoading, refetch, isFetching, data} = useGetSerialsQuery({filters, page})
+
+    useEffect(() => {
+        refetch()
+    }, [page])
 
     return (
         <div className={styles.serials}>
@@ -21,15 +32,20 @@ const Serials = () => {
                 Найди Сериалы По Вкусу
             </h3>
             <Filters/>
-            <div className={styles.serialsList}>
-                {
-                    isLoading || isFetching
-                    ? (<div>Loading...</div>)
-                    : data?.docs?.map(movie => (
-                        <MovieCard key={movie.id} movie={movie}/>
-                    ))
-                }
-            </div>
+            {
+                isLoading || isFetching
+                ? (<Loader/>)
+                : (
+                    <div className={styles.serialsList}>
+                        {
+                            data?.docs?.map(movie => (
+                                <MovieCard key={movie.id} movie={movie}/>
+                            ))
+                        }
+                    </div>
+                )
+            }
+            <Pagination totalPages={data?.pages}/>
         </div>
     )
 }

@@ -11,8 +11,10 @@ import styles from './SliderButton.module.scss'
 const SliderButton = forwardRef<HTMLButtonElement, SliderButtonProps>((props, ref) => {
     return (
         <button
+            onClick={props.fn}
             className={styles.btn}
             ref={ref}
+            disabled={props.disable}
         >
             {
                 props.dir === 'prev' 

@@ -1,6 +1,3 @@
-// * react/next
-
-
 // * redux 
 import { useTypedSelector } from 'store/store' 
 
@@ -13,6 +10,7 @@ import styles from './SearchDropdown.module.scss'
 
 // * components 
 import SearchMovieCard from './SearchMovieCard'
+import Loader from 'components/ui/Loader'
 
 const SearchDropDown = () => {
     const {searchValue, searchType, hiddenSearchedMovies} = useTypedSelector(state => state.search)
@@ -27,10 +25,11 @@ const SearchDropDown = () => {
             {
                 isFetching
                 ? (
-                    <div>
-                        Loading...
-                    </div>
-                ) : (
+                    <div className={styles.loading}>
+                        <Loader/>
+                    </div>  
+                ) 
+                : (
                     <>
                         {
                             data?.docs?.map(movie => (

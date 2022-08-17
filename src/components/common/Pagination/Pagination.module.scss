@@ -1,0 +1,25 @@
+.pagination {
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+    gap: 1rem;
+    .paginateList {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5em;
+        span {
+            color: #78716C;
+            cursor: pointer;
+            transition: 300ms ease;
+            &:hover {
+                transform: translateY(-10px);
+            }
+        }
+        .currentPage {
+            color: #F5F5F4;
+            font-size: 2.2rem;
+            pointer-events: none;
+        }
+    }
+}

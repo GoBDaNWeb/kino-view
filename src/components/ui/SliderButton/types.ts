@@ -1,3 +1,5 @@
 export interface SliderButtonProps {
-    dir: string
+    dir: string,
+    fn?: () => void,
+    disable?:boolean
 }

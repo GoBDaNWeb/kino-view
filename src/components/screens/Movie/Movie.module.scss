@@ -28,3 +28,42 @@
     }
     
 }
+
+@media (max-width: 1550px) {
+    .movie {
+        padding: 0 10rem;
+    }
+}
+@media (max-width: 1180px) {
+    .movie {
+        padding: 0 5rem;
+    }
+}
+@media (max-width: 960px) {
+    .movie {
+        padding: 0 5rem;
+    }
+}
+@media (max-width: 675px) {
+    .movie {
+        padding: 0 2rem;
+    }
+}
+@media (max-width: 465px) {
+    .movie {
+        .mainInfo {
+            img {
+                width: 280px;
+                height: 460px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1250px) {
+    .movie {
+        .mainInfo {
+            flex-direction: column;
+        }
+    }
+}

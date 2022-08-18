@@ -14,3 +14,21 @@
         gap: 3rem;
     }
 }
+
+
+
+@media (max-width: 1180px) {
+    .filters {
+        width: 100%;
+    }
+}
+@media (max-width: 960px) {
+    .filters {
+        .ranges {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}

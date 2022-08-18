@@ -14,21 +14,26 @@ import SliderButton from 'components/ui/SliderButton'
 
 const breakpoints = {
     577: {
-        slidesPerGroup: 3,
-        slidesPerView: 3,
+        slidesPerGroup: 1,
+        slidesPerView: 1,
         spaceBetween: 15
     },
-    769: {
+    770: {
+        slidesPerGroup: 2,
+        slidesPerView: 2,
+        spaceBetween: 30
+    },
+    1025: {
         slidesPerGroup: 3,
         slidesPerView: 3,
         spaceBetween: 30
     },
-    1025: {
+    1200: {
         slidesPerGroup: 4,
         slidesPerView: 4,
         spaceBetween: 30
     },
-    1200: {
+    1500: {
         slidesPerGroup: 5,
         slidesPerView: 5,
         spaceBetween: 30
@@ -70,8 +75,6 @@ const Carousel: React.FC<PropsWithChildren<ICarouselProps>> = ({children, quanti
                 </div>
             </div>
             <Swiper
-                slidesPerView={5}
-                spaceBetween={30}
                 navigation={navigation}
                 modules={[Navigation]}
                 onSwiper={onSwiper}

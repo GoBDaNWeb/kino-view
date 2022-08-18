@@ -13,12 +13,12 @@ import styles from './Movie.module.scss'
 import { SwiperSlide } from 'swiper/react';
 
 // * components 
-import Info from './Info'
+import Info from './components/Info'
 import Carousel from 'components/common/Carousel'
 import PersonItem from 'components/common/PersonItem'
-import Facts from './Facts'
+import Facts from './components/Facts'
 import SimilarMovieCard from 'components/common/SimilarMovieCard'
-import Reviews from './Reviews'
+import Reviews from './components/Reviews'
 
 const Movie = () => {
     const router = useRouter()

@@ -1,6 +1,6 @@
 // * react/next
 import React from 'react'
-import {IFactsProps} from '../types'
+import {IFactsProps} from '../../types'
 
 // *styles 
 import styles from './Facts.module.scss'

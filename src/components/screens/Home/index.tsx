@@ -5,21 +5,23 @@ import React from 'react'
 import styles from './Home.module.scss'
 
 // * components 
-import Hero from './Hero'
-import NewFilms from './NewFilms'
-import NewSerials from './NewSerials'
-import NewCartoons from './NewCartoons'
-import NewAnime from './NewAnime'
+import Hero from './components/Hero'
+import NewFilms from './components/NewFilms'
+import NewSerials from './components/NewSerials'
+import NewCartoons from './components/NewCartoons'
+import NewAnime from './components/NewAnime'
 
 const Home: React.FC<any> = () => {
     return (
-        <div>
+        <>
             <Hero/>
-            <NewFilms/>
-            <NewSerials/>
-            <NewCartoons/>
-            <NewAnime/>
-        </div>
+            <div className={styles.home}>
+                <NewFilms/>
+                <NewSerials/>
+                <NewCartoons/>
+                <NewAnime/>
+            </div>
+        </>
     )
 }
 

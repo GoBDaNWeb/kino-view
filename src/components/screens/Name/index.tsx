@@ -11,7 +11,7 @@ import { SwiperSlide } from 'swiper/react';
 import styles from './Name.module.scss'
 
 //  * components 
-import Info from './Info'
+import Info from './components/Info'
 import Carousel from 'components/common/Carousel'
 import SimilarMovieCard from 'components/common/SimilarMovieCard'
 
@@ -20,10 +20,9 @@ const Name = () => {
     const {data} = useGetPersonByIdQuery(router.query.id)
     const countFilms = Number(data?.movies?.length) - 1
     const query = data?.movies?.map(el => `search=${el.id}&field=id`).join('&')
-    console.log(query)
-    console.log(countFilms)
+    
     const {data: personMovies} = useGetMoviesByIdQuery({query, limit: countFilms + 1})
-    console.log(personMovies)
+
     const aboutPerson = {
         career: data?.profession,
         sex: data?.sex,

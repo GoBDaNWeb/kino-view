@@ -1,5 +1,4 @@
-.cartoons {
-    padding: 0 15rem;
+.anime {
     margin-top: 5rem;
     display: flex;
     flex-direction: column;
@@ -9,7 +8,7 @@
         font-size: 3rem;
         margin-bottom: 1rem;
     }
-    .cartoonsList {
+    .animeList {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         column-gap: 30px;
@@ -17,45 +16,32 @@
         margin-bottom: 50px;
         width: 100%;
     }
-    .btns {
-        display: flex;
-        gap: 2rem;
-    }
-}
-
-@media (max-width: 1550px) {
-    .cartoons {
-        padding: 0 10rem;
-        .cartoonsList { 
+    @media (max-width: 1550px) {
+        .animeList { 
             grid-template-columns: repeat(3, 1fr);
             row-gap: 35px;
         }
     }
-}
-@media (max-width: 1180px) {
-    .cartoons {
-        padding: 0 5rem;
-        .cartoonsList { 
+    @media (max-width: 1180px) {
+        .animeList { 
             grid-template-columns: repeat(3, 1fr);
             row-gap: 35px;
         }
     }
-}
-@media (max-width: 960px) {
-    .cartoons {
-        padding: 0 5rem;
-        .cartoonsList { 
+    @media (max-width: 960px) {
+        .animeList { 
             grid-template-columns: repeat(2, 1fr);
             row-gap: 35px;
         }
     }
-}
-@media (max-width: 675px) {
-    .cartoons {
-        padding: 0 2rem;
-        .cartoonsList { 
+    @media (max-width: 675px) {
+        .animeList { 
             grid-template-columns: repeat(1, 1fr);
             row-gap: 35px;
         }
+    }
+    .btns {
+        display: flex;
+        gap: 2rem;
     }
 }

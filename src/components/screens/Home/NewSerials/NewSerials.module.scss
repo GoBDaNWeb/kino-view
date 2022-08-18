@@ -16,22 +16,46 @@
         row-gap: 50px;
         margin-bottom: 50px;
         width: 100%;
-        
-        @media (max-width: 1200px) {
-            column-gap: var(--container-offset);
-        }
-
-        @media (max-width: 1024px) {
-            grid-template-columns: repeat(4, 1fr);
-        }
-
-        @media (max-width: 768px) {
-            grid-template-columns: repeat(2, 1fr);
-            row-gap: 35px;
-        }
     }
     .btns {
         display: flex;
         gap: 2rem;
+    }
+}
+
+@media (max-width: 1550px) {
+    .serials {
+        padding: 0 10rem;
+        .serialsList { 
+            grid-template-columns: repeat(3, 1fr);
+            row-gap: 35px;
+        }
+    }
+}
+@media (max-width: 1180px) {
+    .serials {
+        padding: 0 5rem;
+        .serialsList { 
+            grid-template-columns: repeat(3, 1fr);
+            row-gap: 35px;
+        }
+    }
+}
+@media (max-width: 960px) {
+    .serials {
+        padding: 0 5rem;
+        .serialsList { 
+            grid-template-columns: repeat(2, 1fr);
+            row-gap: 35px;
+        }
+    }
+}
+@media (max-width: 675px) {
+    .serials {
+        padding: 0 2rem;
+        .serialsList { 
+            grid-template-columns: repeat(1, 1fr);
+            row-gap: 35px;
+        }
     }
 }

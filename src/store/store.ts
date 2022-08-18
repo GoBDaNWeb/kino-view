@@ -5,6 +5,7 @@ import { loadMoreReducer } from "./slices/loadMoreSlice";
 import { filterReducer } from "./slices/filterSlice";
 import { searchMovieReducer } from "./slices/searchMovieSlice";
 import { paginationReducer } from "./slices/paginationSlice";
+import { burgerReducer } from "./slices/burgerSlice";
 import {useMemo} from 'react'
 import {TypedUseSelectorHook, useSelector} from "react-redux";
 
@@ -17,6 +18,7 @@ export const initStore = (preloadedState = {}) => {
       search: searchMovieReducer,
       filter: filterReducer,
       paginate: paginationReducer,
+      burger: burgerReducer,
       [kinoviewAPI.reducerPath]: kinoviewAPI.reducer,
     },
     preloadedState,

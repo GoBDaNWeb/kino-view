@@ -3,6 +3,7 @@
     padding: 0;
     display: flex;
     gap: 1.5rem;
+    z-index: 990;
     li {
         cursor: pointer;
         position: relative;
@@ -41,5 +42,11 @@
             left: 0;
             transition: 300ms ease;
         } 
+    }
+}
+
+@media (max-width: 760px) {
+    .navbar {
+        display: none;
     }
 }

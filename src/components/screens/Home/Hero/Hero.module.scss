@@ -7,7 +7,7 @@
     align-items: center;
     position: relative;
     .backdrop {
-        z-index: 997;
+        z-index: 980;
         position: absolute;
         background: rgba(0, 0, 0, .3);
         width: 100%;
@@ -24,7 +24,7 @@
         object-fit: cover;
     }
     .content {
-        z-index: 998;
+        z-index: 981;
         position: absolute;
         text-align: center;
         text-shadow: 3px 3px 4px black;
@@ -38,6 +38,35 @@
         }
         h4 {
             font-size: 2rem;
+        }
+    }
+}
+
+@media (max-width: 1550px) {
+    .hero {
+        .content { 
+            padding: 0 10rem;
+        }
+    }
+}
+@media (max-width: 1180px) {
+    .hero {
+        .content { 
+            padding: 0 5rem;
+            h1 {
+                font-size: 3rem;
+            }
+            h4 {
+                font-size: 1rem;
+            }
+        }
+    }
+    
+}
+@media (max-width: 675px) {
+    .hero {
+        .content { 
+            padding: 0 2rem;
         }
     }
 }

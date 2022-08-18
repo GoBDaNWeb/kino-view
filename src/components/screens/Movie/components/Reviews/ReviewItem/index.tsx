@@ -1,6 +1,6 @@
 // * react 
 import React, {useState} from 'react'
-import {IReviewItemProps} from '../../types'
+import {IReviewItemProps} from '../../../types'
 
 // * styles 
 import styles from './ReviewItem.module.scss'

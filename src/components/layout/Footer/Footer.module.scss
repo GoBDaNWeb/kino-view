@@ -22,3 +22,25 @@
         color: #A8A29E;
     }
 }
+
+@media (max-width: 1550px) {
+    .footer {
+        padding: 0 10rem;
+    }
+}
+@media (max-width: 1180px) {
+    .footer {
+        padding: 0 5rem;
+    }
+}
+@media (max-width: 675px) {
+    .footer {
+        padding: 0 2rem;
+    }
+}
+@media (max-width: 380px) {
+    .footer {
+        flex-direction: column;
+        padding: 2rem;
+    }
+}

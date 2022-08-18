@@ -1,8 +1,6 @@
 // * react 
 import Link from 'next/link'
-
-// * helpers 
-import {convertNumbers} from 'helpers/convertNumbers'
+import moment from 'moment'
 
 // * styles
 import styles from './Info.module.scss'
@@ -63,7 +61,7 @@ const Info = ({aboutPerson}: {aboutPerson: any}) => {
                 <span className={styles.value}>
                     {
                         aboutPerson.birthday
-                        ? aboutPerson.birthday
+                        ? moment(aboutPerson.birthday).format('ll')
                         : '-'
                     }
                 </span>
@@ -75,7 +73,7 @@ const Info = ({aboutPerson}: {aboutPerson: any}) => {
                 <span className={styles.value}>
                     {
                         aboutPerson.death
-                        ? aboutPerson.death
+                        ? moment(aboutPerson.death).format('ll')
                         : '-'
                     }
                 </span>

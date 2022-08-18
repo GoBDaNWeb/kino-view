@@ -30,3 +30,43 @@
     }
     
 }
+
+@media (max-width: 1550px) {
+    .person {
+        padding: 0 10rem;
+    }
+}
+@media (max-width: 1180px) {
+    .person {
+        padding: 0 5rem;
+    }
+}
+@media (max-width: 960px) {
+    .person {
+        padding: 0 5rem;
+    }
+}
+@media (max-width: 675px) {
+    .person {
+        padding: 0 2rem;
+    }
+}
+
+@media (max-width: 465px) {
+    .person {
+        .mainInfo {
+            img {
+                width: 280px;
+                height: 460px;
+            }
+        }
+    }
+}
+
+@media (max-width: 1250px) {
+    .person {
+        .mainInfo {
+            flex-direction: column;
+        }
+    }
+}

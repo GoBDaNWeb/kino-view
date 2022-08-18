@@ -1,3 +1,6 @@
+// * react/next
+import moment from 'moment'
+
 // * helpers 
 import {convertNumbers} from 'helpers/convertNumbers'
 
@@ -83,7 +86,7 @@ const Info = ({aboutMovie}: {aboutMovie: any}) => {
                 <span className={styles.value}>
                     {
                         aboutMovie.premiere
-                        ? aboutMovie.premiere
+                        ? moment(aboutMovie.premiere).format('ll')
                         : '-'
                     }
                 </span>

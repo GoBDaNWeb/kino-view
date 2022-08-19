@@ -1,9 +1,9 @@
-export interface IFact {
+interface IFact {
     value: string;
     type: string;
     spoiler: boolean;
 }
-export interface IMoviePoster {
+interface IMoviePoster {
     previewUrl: string;
     url: string;
 }
@@ -14,7 +14,7 @@ interface IMovieTrailer {
     url: string;
 }
 
-export interface IMovieRating {
+interface IMovieRating {
     await: number;
     filmCritics: number;
     imdb: number;
@@ -44,7 +44,7 @@ interface IMovieTechnology {
     hasImax: boolean;
 }
 
-export interface IMoviePerson {
+interface IMoviePerson {
     id: number;
     name: string;
     enName: string;
@@ -72,7 +72,7 @@ interface IMovieSequels {
     type: string;
 }
 
-export interface ISimilarMovie {
+interface ISimilarMovie {
     alternativeName: string;
     enName: string;
     id: number;
@@ -95,7 +95,7 @@ interface IMovieFees {
     world: Fees;
 }
 
-export interface IMovie {
+interface IMovie {
     ageRating: number;
     alternativeName: string;
     backdrop: {url: string};
@@ -139,74 +139,6 @@ export interface IMovie {
     year: number;
 }
 
-export interface IMovies {
-    docs: IMovie[],
-    pages?: number
-}
-
-interface IReview {
-    author: string;
-    date: Date;
-    id: number;
-    movieId: number;
-    review: string;
-    reviewDislikes: number;
-    reviewLikes: number;
-    title: string;
-    type: 'Позитивный' | 'Нейтральный' | 'Негативный';
-    updatedAt: Date;
-    userRating: number;
-}
-
-export interface IReviews {
-    docs: IReview[];
-}
-
-interface IPersonSpouse {
-    children: number;
-    divorced: boolean;
-    divorcedReason: string;
-    id: number;
-    name: string;
-    relation: string;
-}
-
-export interface IPerson {
-    age: number;
-    birthPlace: {value: string}[];
-    birthday: Date;
-    countAwards: number;
-    death: Date;
-    deathPlace: {value: string}[];
-    enName: string;
-    facts: IFact[];
-    growth: number;
-    id: number;
-    movies: IMovie[];
-    name: string;
-    photo: string;
-    profession: {value: string}[];
-    sex: string;
-    spouses: IPersonSpouse[];
-    updatedAt: Date;
-}
-
-interface IFilters {
-    rating: string;
-    year: string;
-    sortByRelease?: string;
-    genres: string;
-    search?:string
-}
-
-export interface IBaseQuery {
-    type?: string;
-    query?: string;
-    limit?: number;
-    page?: number;
-    id?: string | string[] | undefined;
-}
-
-export interface IQuery extends IBaseQuery {
-    filters: IFilters;
+export interface IMovieCardProps {
+    movie: IMovie
 }

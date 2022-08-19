@@ -1,5 +1,6 @@
 // * react/next 
-import React, {useState, useEffect} from 'react'
+import React from 'react'
+import {IPaginationProps} from './types'
 
 //  * redux
 import { useDispatch } from 'react-redux'
@@ -10,11 +11,10 @@ import { setPage } from 'store/slices/paginationSlice'
 import styles from './Pagination.module.scss'
 import SliderButton from 'components/ui/SliderButton'
 
-const Pagination: React.FC<any> = ({totalPages}) => {
+const Pagination: React.FC<IPaginationProps> = ({totalPages}) => {
     const dispatch = useDispatch()
-
     const {page} = useTypedSelector(state => state.paginate)
-
+    
     const userChangePage = (selectedPage: number) => {
         dispatch(setPage(selectedPage))
     }
@@ -87,6 +87,7 @@ const Pagination: React.FC<any> = ({totalPages}) => {
                 }
                 {
                     page !== totalPages
+                    && totalPages
                     && page !== totalPages - 1
                     && page !== totalPages - 2
                     && (
@@ -97,6 +98,7 @@ const Pagination: React.FC<any> = ({totalPages}) => {
                 }
                 {
                     page !== totalPages
+                    && totalPages
                     && page !== totalPages - 1
                     && page !== totalPages - 2
                     && (
@@ -106,7 +108,8 @@ const Pagination: React.FC<any> = ({totalPages}) => {
                     )
                 }
                 {
-                    page < totalPages
+                    totalPages 
+                    && page < totalPages 
                     && page !== totalPages - 1
                     && page !== totalPages - 2
                     && page !== totalPages - 3
@@ -118,6 +121,7 @@ const Pagination: React.FC<any> = ({totalPages}) => {
                 }
                 {
                     page !== totalPages
+                    && totalPages
                     && page !== totalPages - 1
                     && page !== totalPages - 2
                     && page !== totalPages - 3

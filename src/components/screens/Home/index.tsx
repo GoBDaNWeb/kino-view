@@ -11,7 +11,7 @@ import NewSerials from './components/NewSerials'
 import NewCartoons from './components/NewCartoons'
 import NewAnime from './components/NewAnime'
 
-const Home: React.FC<any> = () => {
+const Home = () => {
     return (
         <>
             <Hero/>

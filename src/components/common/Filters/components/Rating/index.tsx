@@ -1,6 +1,6 @@
 // * react
 import React from 'react'
-import {IRange} from '../../types'
+import {IFilterComponentsProps} from '../../types'
 
 // * styles
 import styles from './Rating.module.scss'
@@ -8,7 +8,7 @@ import styles from './Rating.module.scss'
 // * components 
 import RangeSlider from 'components/ui/RangeSlider'
 
-const Rating: React.FC<IRange> = ({value, onChange}) => {
+const Rating: React.FC<IFilterComponentsProps> = ({value, onChange}) => {
     return (
         <div className={styles.ratingFilter}>
             <h5>Рейтинг</h5>
@@ -18,7 +18,7 @@ const Rating: React.FC<IRange> = ({value, onChange}) => {
                     placeholder="От" 
                     min={1}
                     max={10}
-                    value={value[0]}
+                    value={value && value[0]}
                     // @ts-ignore
                     onChange={(e) => onChange([e.target.value, value[1] || 10])}
                 />
@@ -27,7 +27,7 @@ const Rating: React.FC<IRange> = ({value, onChange}) => {
                     placeholder="До"
                     min={2}
                     max={10}
-                    value={value[1]}
+                    value={value && value[1]}
                     // @ts-ignore
                     onChange={(e) => onChange([value[0] || 1, e.target.value])}
                 />

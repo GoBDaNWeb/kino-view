@@ -1,4 +1,6 @@
 // * react/next
+import React from 'react'
+import { IInfoProps } from '../../types'
 import moment from 'moment'
 
 // * helpers 
@@ -7,7 +9,7 @@ import {convertNumbers} from 'helpers/convertNumbers'
 // * styles
 import styles from './Info.module.scss'
 
-const Info = ({aboutMovie}: {aboutMovie: any}) => {
+const Info: React.FC<IInfoProps> = ({aboutMovie}) => {
     return (
         <ul className={styles.info}>
             <li>
@@ -16,7 +18,7 @@ const Info = ({aboutMovie}: {aboutMovie: any}) => {
                 </span>
                 <span className={`${styles.value} ${styles.array}`}>
                     {
-                        aboutMovie.countries.map((country: any, index: number) => (
+                        aboutMovie.countries?.map((country: any, index: number) => (
                             <div key={index}>
                                 {country.name}
                             </div>
@@ -31,7 +33,7 @@ const Info = ({aboutMovie}: {aboutMovie: any}) => {
                 
                 <span className={`${styles.value} ${styles.array}`}>
                     {
-                        aboutMovie.genres.map((genre: any, index: number) => (
+                        aboutMovie.genres?.map((genre: any, index: number) => (
                             <div key={index}>
                                 {index ? ', ' : ''}{genre.name}
                             </div>

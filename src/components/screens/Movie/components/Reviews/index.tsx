@@ -17,6 +17,7 @@ const Reviews = () => {
     const [limit, setLimit] = useState(3)
 
     const router = useRouter()
+    // @ts-ignore
     const {isFetching, data} = useGetReviewsQuery({id: router.query.id, limit})
     
     const onLoadMoreReviews = () => {

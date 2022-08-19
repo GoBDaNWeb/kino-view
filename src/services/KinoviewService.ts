@@ -1,6 +1,6 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
 import { AnyMxRecord } from 'dns';
-import {IMovie, IMovies, IReviews, IPerson} from './types'
+import {IMovie, IMovies, IReviews, IPerson, IQuery} from './types'
 
 export const kinoviewAPI = createApi({
     reducerPath: 'kinoviewAPI',
@@ -21,29 +21,29 @@ export const kinoviewAPI = createApi({
         getMovieById: build.query<IMovie, string | string[] | undefined>({
             query: id => `movie?search=${id}&field=id&token=BGGATXC-SC6M1QJ-QH36R71-HFMCSMW`
         }),
-        getFilms: build.query<IMovies, any>({
-            query: ({filters, page}) => `movie?${filters.genre}&search[]=${filters.year}&field[]=year&search[]=${filters.rating}&field=rating.kp&search=${filters.search}&field=name&isStrict=false&search=1&field=typeNumber&search=!null&field=votes.kp&sortField=year&sortType=-1&limit=12&page=${page}&token=BGGATXC-SC6M1QJ-QH36R71-HFMCSMW`
+        getFilms: build.query<IMovies, IQuery>({
+            query: ({filters, page}) => `movie?${filters.genres}&search[]=${filters.year}&field[]=year&search[]=${filters.rating}&field=rating.kp&search=${filters.search}&field=name&isStrict=false&search=1&field=typeNumber&search=!null&field=votes.kp&sortField=year&sortType=-1&limit=12&page=${page}&token=BGGATXC-SC6M1QJ-QH36R71-HFMCSMW`
         }),
         //
-        getSerials: build.query<IMovies, any>({
+        getSerials: build.query<IMovies, IQuery>({
             query: ({filters, page}) => `movie?${filters.genres}search[]=${filters.year}&field[]=year&search[]=${filters.rating}&field=rating.kp&search=${filters.search}&field=name&isStrict=false&search=2&field=typeNumber&search=!null&field=votes.kp&sortField=year&sortType=-1&limit=12&page=${page}&token=BGGATXC-SC6M1QJ-QH36R71-HFMCSMW`
         }),
-        getCartoons: build.query<IMovies, any>({
+        getCartoons: build.query<IMovies, IQuery>({
             query: ({filters, page}) => `movie?${filters.genres}search[]=${filters.year}&field[]=year&search[]=${filters.rating}&field=rating.kp&search=${filters.search}&field=name&isStrict=false&search=3&field=typeNumber&search=!null&field=votes.kp&sortField=year&sortType=-1&limit&page=${page}&token=BGGATXC-SC6M1QJ-QH36R71-HFMCSMW`
         }),
-        getAnime: build.query<IMovies, any>({
+        getAnime: build.query<IMovies, IQuery>({
             query: ({filters, page}) => `movie?${filters.genres}search[]=${filters.year}&field[]=year&search[]=${filters.rating}&field=rating.kp&search=${filters.search}&field=name&isStrict=false&search=4&field=typeNumber&search=!null&field=votes.kp&sortField=year&sortType=-1&limit=12&page=${page}&token=BGGATXC-SC6M1QJ-QH36R71-HFMCSMW`
         }),
-        getMoviesBySearch: build.query<IMovies, any>({
+        getMoviesBySearch: build.query<IMovies, IQuery>({
             query: ({query, type}) => `movie?search=${query}&field=name&limit=10&sortField=year&sortType=-1&field=typeNumber&search=${type}&isStrict=false&token=BGGATXC-SC6M1QJ-QH36R71-HFMCSMW`
         }),
-        getReviews: build.query<IReviews, any>({
+        getReviews: build.query<IReviews, IQuery>({
             query: ({id, limit}) => `review?search=${id}&field=movieId&limit=${limit}&token=BGGATXC-SC6M1QJ-QH36R71-HFMCSMW`
         }),
         getPersonById: build.query<IPerson, string | string[] | undefined>({
             query: id => `person?search=${id}&field=id&token=BGGATXC-SC6M1QJ-QH36R71-HFMCSMW`
         }),
-        getMoviesById: build.query<IMovies, any>({
+        getMoviesById: build.query<IMovies, IQuery>({
             query: ({query, limit}) =>
               `movie?${query}&limit=${limit}&token=BGGATXC-SC6M1QJ-QH36R71-HFMCSMW`
         }),

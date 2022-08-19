@@ -1,6 +1,7 @@
 // * react/next 
 import React from 'react'
 import Link from 'next/link'
+import { IMovieCardProps } from 'components/common/Search/types'
 
 // * helpers
 import {cropText} from 'helpers/cropText'
@@ -10,7 +11,7 @@ import {ratingColorHandler} from 'helpers/ratingColorHandler'
 // * styles 
 import styles from './SearchMovieCard.module.scss'
 
-const SearchMovieCard: React.FC<any> = ({movie}) => {
+const SearchMovieCard: React.FC<IMovieCardProps> = ({movie}) => {
     return (
         <Link href={`/movie/${movie.id}`}>
             <div className={styles.card}>

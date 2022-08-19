@@ -19,8 +19,9 @@ const Name = () => {
     const router = useRouter()
     const {data} = useGetPersonByIdQuery(router.query.id)
     const countFilms = Number(data?.movies?.length) - 1
+    // @ts-ignore
     const query = data?.movies?.map(el => `search=${el.id}&field=id`).join('&')
-    
+    // @ts-ignore
     const {data: personMovies} = useGetMoviesByIdQuery({query, limit: countFilms + 1})
 
     const aboutPerson = {

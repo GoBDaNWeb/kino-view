@@ -5,10 +5,9 @@ import {useRouter} from 'next/router'
 // * styles 
 import styles from './Navbar.module.scss'
 
-// * components 
-import Burger from 'components/ui/Burger'
 const Navbar = () => {
     const {pathname} = useRouter()
+    
     return (
         <>
             <ul className={styles.navbar}>

@@ -1,5 +1,6 @@
 //  * reacr/next 
 import React from 'react'
+import { IFilterComponentsProps } from '../../types'
 
 // * styles 
 import styles from './Genres.module.scss'
@@ -35,7 +36,7 @@ const genres = [
     {label: "Фэнтези", value: "фэнтези"}
 ]
 
-const Genres: React.FC<any> = ({onChange}) => {
+const Genres: React.FC<IFilterComponentsProps> = ({onChange}) => {
     return (
         <div className={styles.genresFilter}>
             <h5>Жанры</h5>

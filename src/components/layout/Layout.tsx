@@ -1,5 +1,5 @@
 // * react/next
-import React from "react"
+import React, {PropsWithChildren} from "react"
 
 // * styles 
 import styles from './Layout.module.scss'
@@ -8,7 +8,7 @@ import styles from './Layout.module.scss'
 import Header from './Header'
 import Footer from './Footer'
 
-const Layout = ({children}: {children: React.ReactNode}) => {
+const Layout: React.FC<PropsWithChildren> = ({children}) => {
     return (
         <div className={styles.layout}>
             <Header/>

@@ -37,3 +37,25 @@ export interface IFactsProps {
 export interface IReviewItemProps {
     review: IReview
 }
+
+interface ICoutry {
+    name: string
+}
+
+interface IGenre{
+    name: string
+}
+
+interface IInfo {
+    ageRating?: number,
+    countries?: ICoutry[],
+    fees?: number,
+    genres?: IGenre[],
+    movieLength?: number,
+    premiere?: Date,
+    slogan?: string
+}
+
+export interface IInfoProps {
+    aboutMovie: IInfo
+}

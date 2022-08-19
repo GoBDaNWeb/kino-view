@@ -14,6 +14,7 @@ const MoviePage: NextPage = () => {
 export const getServerSideProps: GetServerSideProps = async (params) => {
     const store = initStore()    
     await store.dispatch(getMovieById.initiate(params.query.id))
+    //@ts-ignore
     await store.dispatch(getReviews.initiate(params.query.id))
   
     return {props: { initialReduxState: store.getState()}

@@ -14,6 +14,7 @@ import Loader from 'components/ui/Loader'
 
 const SearchDropDown = () => {
     const {searchValue, searchType, hiddenSearchedMovies} = useTypedSelector(state => state.search)
+    //@ts-ignore
     const {isFetching, data} = useGetMoviesBySearchQuery({query: searchValue, type: searchType})
     const classcondition = searchValue?.length > 0 
         && hiddenSearchedMovies 

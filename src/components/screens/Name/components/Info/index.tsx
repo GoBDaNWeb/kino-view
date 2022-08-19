@@ -1,11 +1,14 @@
 // * react 
+import React from 'react'
+import { IInfoProps } from '../../types'
 import Link from 'next/link'
 import moment from 'moment'
 
 // * styles
 import styles from './Info.module.scss'
 
-const Info = ({aboutPerson}: {aboutPerson: any}) => {
+const Info: React.FC<IInfoProps> = ({aboutPerson}) => {
+    
     return (
         <ul className={styles.info}>
             <li>

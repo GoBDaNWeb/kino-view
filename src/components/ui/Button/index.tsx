@@ -1,10 +1,11 @@
 // * react/next 
-import react from 'react'
+import React, {PropsWithChildren} from 'react'
+import { IButtonProps } from './types'
 
 // * styles 
 import styles from './Button.module.scss'
 
-const Button = ({children, fn}: {children: React.ReactNode, fn: any}) => {
+const Button: React.FC<PropsWithChildren<IButtonProps>> = ({children, fn}) => {
     return (
         <button 
             onClick={() => fn()}

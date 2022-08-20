@@ -1,3 +1,3 @@
 export interface IPaginationProps {
-    totalPages?: number
+    totalPages?: number;
 }

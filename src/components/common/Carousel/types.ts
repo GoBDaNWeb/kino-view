@@ -1,5 +1,5 @@
 export interface ICarouselProps {
-    quantity?: number,
-    title: string,
-    type: string
+    quantity?: number;
+    title: string;
+    type: string;
 }

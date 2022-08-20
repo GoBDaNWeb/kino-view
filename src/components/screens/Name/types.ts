@@ -1,17 +1,17 @@
 interface ICarrer {
-    value: string
+    value: string;
 }
 
 interface IInfo {
-    birthday?: Date,
-    career?: ICarrer[],
-    death?: Date,
-    growth?: number,
-    sex?: string,
-    totalMovies?: number,
-    spouses?: any
+    birthday?: Date;
+    career?: ICarrer[];
+    death?: Date;
+    growth?: number;
+    sex?: string;
+    totalMovies?: number;
+    spouses?: any;
 }
 
 export interface IInfoProps {
-    aboutPerson: IInfo
+    aboutPerson: IInfo;
 }

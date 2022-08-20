@@ -1,4 +1,4 @@
-import {createSlice} from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     filters: {
@@ -6,41 +6,36 @@ const initialState = {
         genres: '',
         rating: '1-10',
         year: '1960-2022',
-        search: ''
-    }
-}
+        search: '',
+    },
+};
 
 const filterSlice = createSlice({
     name: 'filter',
     initialState,
     reducers: {
         setSort: (state, action) => {
-            state.filters.sort = action.payload
+            state.filters.sort = action.payload;
         },
         setGenres: (state, action) => {
-            state.filters.genres = action.payload
+            state.filters.genres = action.payload;
         },
         setRating: (state, action) => {
-            state.filters.rating = action.payload
+            state.filters.rating = action.payload;
         },
         setYear: (state, action) => {
-            state.filters.year = action.payload
+            state.filters.year = action.payload;
         },
         setSearch: (state, action) => {
-            state.filters.search = action.payload
+            state.filters.search = action.payload;
         },
-        resetFilters: state => {
-            state.filters = initialState.filters
-        }
-    }
-})
+        resetFilters: (state) => {
+            state.filters = initialState.filters;
+        },
+    },
+});
 
-export const {
-    setSort,
-    setGenres,
-    setRating,
-    setYear,
-    setSearch,
-} = filterSlice.actions
+export const { setSort, setGenres, setRating, setYear, setSearch } =
+    filterSlice.actions;
 
-export const filterReducer = filterSlice.reducer
+export const filterReducer = filterSlice.reducer;

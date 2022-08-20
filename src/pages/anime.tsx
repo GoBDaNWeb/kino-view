@@ -1,26 +1,26 @@
-// * react/next 
-import {GetStaticProps, NextPage} from 'next'
+// * react/next
+import { GetStaticProps, NextPage } from 'next';
 
 // * redux
-import { initStore } from 'store/store'
+import { initStore } from 'store/store';
 
-// * services 
-import {getAnime} from 'services/KinoviewService'
+// * services
+import { getAnime } from 'services/KinoviewService';
 
-// * components 
-import Anime from 'components/screens/Anime'
+// * components
+import Anime from 'components/screens/Anime';
 
 const AnimePage: NextPage = () => {
-    return <Anime/>
-}
+    return <Anime />;
+};
 
 export const getStaticProps: GetStaticProps = async () => {
-    const store = initStore()
-    const state = store.getState()
-    const {filters} = state.filter;
-    const {page} = state.paginate;
-    await store.dispatch(getAnime.initiate({filters, page}))
-    return {props: {initialReduxState: store.getState()}}
-}
+    const store = initStore();
+    const state = store.getState();
+    const { filters } = state.filter;
+    const { page } = state.paginate;
+    await store.dispatch(getAnime.initiate({ filters, page }));
+    return { props: { initialReduxState: store.getState() } };
+};
 
-export default AnimePage
+export default AnimePage;

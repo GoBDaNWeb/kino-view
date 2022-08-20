@@ -1,12 +1,14 @@
-export function converMovieName(name: string) {
-    switch(name) {
+export default function converMovieName(name: string) {
+    switch (name) {
         case 'movie':
-            return 'Фильм'
+            return 'Фильм';
         case 'tv-series':
-            return 'Сериал'
+            return 'Сериал';
         case 'cartoon':
-            return 'Мультфильм'
+            return 'Мультфильм';
         case 'anime':
-            return 'Аниме'
+            return 'Аниме';
+        default:
+            return '';
     }
 }

@@ -1,53 +1,50 @@
-// * react/next 
-import { useEffect } from 'react'
+// * react/next
+import { useEffect } from 'react';
 
 // * redux
-import { useTypedSelector } from 'store/store'
+import { useTypedSelector } from 'store/store';
 
-// * services 
-import { useGetAnimeQuery } from 'services/KinoviewService'
+// * services
+import { useGetAnimeQuery } from 'services/KinoviewService';
 
-// * styles 
-import styles from './Anime.module.scss'
+// * styles
 
-// * components 
-import MovieCard from 'components/common/MovieCard'
-import Filters from 'components/common/Filters'
-import Pagination from 'components/common/Pagination'
-import Loader from 'components/ui/Loader'
+// * components
+import MovieCard from 'components/common/MovieCard';
+import Filters from 'components/common/Filters';
+import Pagination from 'components/common/Pagination';
+import Loader from 'components/ui/Loader';
+import styles from './Anime.module.scss';
 
 const Anime = () => {
-    const {filters} = useTypedSelector(state => state.filter)
-    const {page} = useTypedSelector(state => state.paginate)
+    const { filters } = useTypedSelector((state) => state.filter);
+    const { page } = useTypedSelector((state) => state.paginate);
 
-    const {isLoading, refetch, isFetching, data} = useGetAnimeQuery({filters, page})
+    const { isLoading, refetch, isFetching, data } = useGetAnimeQuery({
+        filters,
+        page,
+    });
 
     useEffect(() => {
-        refetch()
-    }, [page])
+        refetch();
+    }, [page, refetch]);
 
     return (
         <div className={styles.anime}>
-            <h3>
-                Найди Аниме По Вкусу
-            </h3>
-            <Filters/>
-            {
-                isLoading || isFetching
-                ? (<Loader/>)
-                : (
-                    <div className={styles.animeList}>
-                        {
-                            data?.docs?.map(movie => (
-                                <MovieCard key={movie.id} movie={movie}/>
-                            ))
-                        }
-                    </div>
-                )
-            }
-            <Pagination totalPages={data?.pages}/>
+            <h3>Найди Аниме По Вкусу</h3>
+            <Filters />
+            {isLoading || isFetching ? (
+                <Loader />
+            ) : (
+                <div className={styles.animeList}>
+                    {data?.docs?.map((movie) => (
+                        <MovieCard key={movie.id} movie={movie} />
+                    ))}
+                </div>
+            )}
+            <Pagination totalPages={data?.pages} />
         </div>
-    )
-}
+    );
+};
 
-export default Anime
+export default Anime;

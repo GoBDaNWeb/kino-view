@@ -1,36 +1,33 @@
-// * react/next 
-import Link from 'next/link'
+// * react/next
+import Link from 'next/link';
 
-// * redux 
-import { useTypedSelector } from 'store/store'
+// * icons
+import { GiFilmSpool } from 'react-icons/gi';
 
-// * icons 
-import {GiFilmSpool} from 'react-icons/gi'
+// * styles
+import Burger from 'components/ui/Burger';
+import styles from './Header.module.scss';
 
-// * styles 
-import styles from './Header.module.scss'
-
-// * components 
-import Navbar from './components/Navbar'
-import MobileMenu from './components/MobileMenu'
-import Burger from 'components/ui/Burger'
+// * components
+import Navbar from './components/Navbar';
+import MobileMenu from './components/MobileMenu';
 
 const Header = () => {
     return (
         <div className={styles.header}>
             <div className={styles.headerContet}>
-                <Link href='/'>
+                <Link href="/">
                     <div className={styles.logo}>
-                        <GiFilmSpool/>
+                        <GiFilmSpool />
                         Kino<span>View</span>
                     </div>
                 </Link>
-                <Navbar/>
-                <Burger/>
+                <Navbar />
+                <Burger />
             </div>
-            <MobileMenu/>
+            <MobileMenu />
         </div>
-    )
-}
+    );
+};
 
-export default Header
+export default Header;

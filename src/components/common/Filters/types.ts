@@ -1,4 +1,4 @@
 export interface IFilterComponentsProps {
-    value?: number[],
-    onChange: () => void
+    value?: number[];
+    onChange: () => void;
 }

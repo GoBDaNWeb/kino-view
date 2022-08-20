@@ -1,8 +1,9 @@
 .footer {
     padding: 0 15rem;
     height: 8rem;
-    background: #18181B;
-    box-shadow: 0 -4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    background: #18181b;
+    box-shadow: 0 -4px 6px -1px rgb(0 0 0 / 0.1),
+        0 2px 4px -2px rgb(0 0 0 / 0.1);
     margin-top: 5rem;
     display: flex;
     align-items: center;
@@ -15,11 +16,11 @@
         cursor: pointer;
         user-select: none;
         span {
-            color: #06B6D4;
+            color: #06b6d4;
         }
     }
     span {
-        color: #A8A29E;
+        color: #a8a29e;
     }
 }
 

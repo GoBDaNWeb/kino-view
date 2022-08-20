@@ -3,59 +3,65 @@ interface IMoviePerson {
     name: string;
     enName: string;
     description: string;
-    enProfession: 'director' | 'actor' | 'design' | 'producer' | 'composer' | 'editor';
+    enProfession:
+        | 'director'
+        | 'actor'
+        | 'design'
+        | 'producer'
+        | 'composer'
+        | 'editor';
     photo: string;
 }
 
 interface IFacts {
-    spoiler: boolean,
-    type: string,
-    value: string
+    spoiler: boolean;
+    type: string;
+    value: string;
 }
 
 interface IReview {
-    author: string,
-    date: Date,
-    id: number,
-    movieId: number,
-    review: string,
-    reviewDislikes: number,
-    reviewLikes: number,
-    title: string,
-    updatedAt: Date,
-    userRating: number
+    author: string;
+    date: Date;
+    id: number;
+    movieId: number;
+    review: string;
+    reviewDislikes: number;
+    reviewLikes: number;
+    title: string;
+    updatedAt: Date;
+    userRating: number;
 }
 
 export interface IPersonItemProps {
-    person: IMoviePerson
+    person: IMoviePerson;
 }
 
 export interface IFactsProps {
-    facts?: IFacts[]
+    facts?: IFacts[];
 }
 
 export interface IReviewItemProps {
-    review: IReview
+    review: IReview;
 }
 
 interface ICoutry {
-    name: string
+    name: string;
 }
 
-interface IGenre{
-    name: string
+interface IGenre {
+    name: string;
 }
 
 interface IInfo {
-    ageRating?: number,
-    countries?: ICoutry[],
-    fees?: number,
-    genres?: IGenre[],
-    movieLength?: number,
-    premiere?: Date,
-    slogan?: string
+    ageRating?: number;
+    countries?: ICoutry[];
+    fees?: number;
+    genres?: IGenre[];
+    movieLength?: number;
+    premiere?: Date;
+    slogan?: string;
 }
 
 export interface IInfoProps {
-    aboutMovie: IInfo
+    aboutMovie: IInfo;
 }

@@ -49,7 +49,13 @@ interface IMoviePerson {
     name: string;
     enName: string;
     description: string;
-    enProfession: 'director' | 'actor' | 'design' | 'producer' | 'composer' | 'editor';
+    enProfession:
+        | 'director'
+        | 'actor'
+        | 'design'
+        | 'producer'
+        | 'composer'
+        | 'editor';
     photo: string;
 }
 
@@ -72,14 +78,6 @@ interface IMovieSequels {
     type: string;
 }
 
-interface ISimilarMovie {
-    alternativeName: string;
-    enName: string;
-    id: number;
-    name: string;
-    poster: IMoviePoster;
-}
-
 interface IMovieLang {
     name: string;
     nameEn: string;
@@ -88,7 +86,7 @@ interface IMovieLang {
 type Fees = {
     value: number;
     currency: string;
-}
+};
 
 interface IMovieFees {
     usa: Fees;
@@ -98,23 +96,23 @@ interface IMovieFees {
 interface IMovie {
     ageRating: number;
     alternativeName: string;
-    backdrop: {url: string};
+    backdrop: { url: string };
     budget: IMovieBudget;
-    countries: {name: string}[];
+    countries: { name: string }[];
     createDate: Date;
     description: string;
     distributors: IMovieDistributors;
     fees: IMovieFees;
     facts: IFact[];
-    genres: {name: string}[];
+    genres: { name: string }[];
     id: number;
     enName: string;
-    images: {framesCount: number}
+    images: { framesCount: number };
     lists: [];
-    logo: {url: string}
+    logo: { url: string };
     movieLength: number;
     name: string;
-    names: {name: string}[];
+    names: { name: string }[];
     persons: IMoviePerson[];
     poster: IMoviePoster;
     premiere: IMoviePremiere;
@@ -134,11 +132,11 @@ interface IMovie {
     typeNumber: number;
     updateDates: Date[];
     updatedAt: Date;
-    videos: {trailers: IMovieTrailer[]};
+    videos: { trailers: IMovieTrailer[] };
     votes: IMovieRating;
     year: number;
 }
 
 export interface IMovieCardProps {
-    movie: IMovie
+    movie: IMovie;
 }

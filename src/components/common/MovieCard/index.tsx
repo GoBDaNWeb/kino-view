@@ -1,20 +1,21 @@
 // * react/next
-import React from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
-import { IMovieCardProps } from './types'
+import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 
-// * helpers 
-import {converMovieName} from 'helpers/convertMovieNames'
-import {ratingColorHandler} from 'helpers/ratingColorHandler'
+// * helpers
+import converMovieName from 'helpers/convertMovieNames';
+import ratingColorHandler from 'helpers/ratingColorHandler';
+import { IMovieCardProps } from './types';
 
 // * styles
-import styles from './MovieCard.module.scss'
+import styles from './MovieCard.module.scss';
 
-const MovieCard: React.FC<IMovieCardProps> = ({movie}) => {
+const MovieCard: React.FC<IMovieCardProps> = ({ movie }) => {
     return (
         <Link href={`/movie/${movie.id}`}>
             <div className={styles.card}>
+                {/* prettier-ignore */}
                 <div className={`${styles.rating} ${ratingColorHandler(movie.rating.kp)}`}>
                     {movie.rating.kp}
                 </div>
@@ -27,16 +28,14 @@ const MovieCard: React.FC<IMovieCardProps> = ({movie}) => {
                     />
                 </div>
                 <div className={styles.content}>
-                    <h5>
-                        {movie.name}
-                    </h5>
+                    <h5>{movie.name}</h5>
                     <span>
                         {converMovieName(movie.type)}, {movie.year}
                     </span>
                 </div>
             </div>
         </Link>
-    )
-}
+    );
+};
 
-export default MovieCard
+export default MovieCard;

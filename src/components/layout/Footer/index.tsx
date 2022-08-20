@@ -1,26 +1,24 @@
 // * react/next
-import Link from 'next/link'
+import Link from 'next/link';
 
-// * icons 
-import {GiFilmSpool} from 'react-icons/gi'
+// * icons
+import { GiFilmSpool } from 'react-icons/gi';
 
-// * styles 
-import styles from './Footer.module.scss'
+// * styles
+import styles from './Footer.module.scss';
 
 const Footer = () => {
     return (
         <div className={styles.footer}>
-            <Link href='/'>
+            <Link href="/">
                 <div className={styles.logo}>
-                    <GiFilmSpool/>
+                    <GiFilmSpool />
                     Kino<span>View</span>
                 </div>
             </Link>
-            <span>
-                @kinoview2022
-            </span>
+            <span>@kinoview2022</span>
         </div>
-    )
-}
+    );
+};
 
-export default Footer
+export default Footer;

@@ -49,7 +49,13 @@ export interface IMoviePerson {
     name: string;
     enName: string;
     description: string;
-    enProfession: 'director' | 'actor' | 'design' | 'producer' | 'composer' | 'editor';
+    enProfession:
+        | 'director'
+        | 'actor'
+        | 'design'
+        | 'producer'
+        | 'composer'
+        | 'editor';
     photo: string;
 }
 
@@ -88,7 +94,7 @@ interface IMovieLang {
 type Fees = {
     value: number;
     currency: string;
-}
+};
 
 interface IMovieFees {
     usa: Fees;
@@ -98,23 +104,23 @@ interface IMovieFees {
 export interface IMovie {
     ageRating: number;
     alternativeName: string;
-    backdrop: {url: string};
+    backdrop: { url: string };
     budget: IMovieBudget;
-    countries: {name: string}[];
+    countries: { name: string }[];
     createDate: Date;
     description: string;
     distributors: IMovieDistributors;
     fees: IMovieFees;
     facts: IFact[];
-    genres: {name: string}[];
+    genres: { name: string }[];
     id: number;
     enName: string;
-    images: {framesCount: number}
+    images: { framesCount: number };
     lists: [];
-    logo: {url: string}
+    logo: { url: string };
     movieLength: number;
     name: string;
-    names: {name: string}[];
+    names: { name: string }[];
     persons: IMoviePerson[];
     poster: IMoviePoster;
     premiere: IMoviePremiere;
@@ -134,14 +140,14 @@ export interface IMovie {
     typeNumber: number;
     updateDates: Date[];
     updatedAt: Date;
-    videos: {trailers: IMovieTrailer[]};
+    videos: { trailers: IMovieTrailer[] };
     votes: IMovieRating;
     year: number;
 }
 
 export interface IMovies {
-    docs: IMovie[],
-    pages?: number
+    docs: IMovie[];
+    pages?: number;
 }
 
 interface IReview {
@@ -173,11 +179,11 @@ interface IPersonSpouse {
 
 export interface IPerson {
     age: number;
-    birthPlace: {value: string}[];
+    birthPlace: { value: string }[];
     birthday: Date;
     countAwards: number;
     death: Date;
-    deathPlace: {value: string}[];
+    deathPlace: { value: string }[];
     enName: string;
     facts: IFact[];
     growth: number;
@@ -185,7 +191,7 @@ export interface IPerson {
     movies: IMovie[];
     name: string;
     photo: string;
-    profession: {value: string}[];
+    profession: { value: string }[];
     sex: string;
     spouses: IPersonSpouse[];
     updatedAt: Date;
@@ -196,7 +202,7 @@ interface IFilters {
     year: string;
     sortByRelease?: string;
     genres: string;
-    search?:string
+    search?: string;
 }
 
 export interface IBaseQuery {

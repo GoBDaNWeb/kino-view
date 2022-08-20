@@ -1,13 +1,13 @@
-// * react 
-import React from 'react'
-import {ISimilarMovieCardProps} from './types'
-import Link from 'next/link'
-import Image from 'next/image'
+// * react
+import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { ISimilarMovieCardProps } from './types';
 
-// * styles 
-import styles from './SimilarMovieCard.module.scss'
+// * styles
+import styles from './SimilarMovieCard.module.scss';
 
-const SimilarMovieCard: React.FC<ISimilarMovieCardProps> = ({movie}) => {
+const SimilarMovieCard: React.FC<ISimilarMovieCardProps> = ({ movie }) => {
     return (
         <div>
             <Link href={`/movie/${movie.id}`}>
@@ -21,14 +21,12 @@ const SimilarMovieCard: React.FC<ISimilarMovieCardProps> = ({movie}) => {
                         />
                     </div>
                     <div className={styles.content}>
-                        <h5>
-                            {movie.name}
-                        </h5>
+                        <h5>{movie.name}</h5>
                     </div>
                 </div>
             </Link>
         </div>
-    )
-}
+    );
+};
 
-export default SimilarMovieCard
+export default SimilarMovieCard;

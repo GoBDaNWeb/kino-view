@@ -14,28 +14,28 @@
         column-gap: 30px;
         row-gap: 50px;
         margin-bottom: 50px;
-        width: 100%;        
+        width: 100%;
     }
     @media (max-width: 1550px) {
-        .filmsList { 
+        .filmsList {
             grid-template-columns: repeat(3, 1fr);
             row-gap: 35px;
         }
     }
     @media (max-width: 1180px) {
-        .filmsList { 
+        .filmsList {
             grid-template-columns: repeat(3, 1fr);
             row-gap: 35px;
         }
     }
     @media (max-width: 960px) {
-        .filmsList { 
+        .filmsList {
             grid-template-columns: repeat(2, 1fr);
             row-gap: 35px;
         }
     }
     @media (max-width: 675px) {
-        .filmsList { 
+        .filmsList {
             grid-template-columns: repeat(1, 1fr);
             row-gap: 35px;
         }
@@ -45,4 +45,3 @@
         gap: 2rem;
     }
 }
-

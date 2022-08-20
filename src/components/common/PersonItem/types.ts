@@ -3,10 +3,16 @@ interface IMoviePerson {
     name: string;
     enName: string;
     description: string;
-    enProfession: 'director' | 'actor' | 'design' | 'producer' | 'composer' | 'editor';
+    enProfession:
+        | 'director'
+        | 'actor'
+        | 'design'
+        | 'producer'
+        | 'composer'
+        | 'editor';
     photo: string;
 }
 
 export interface IPersonItemProps {
-    person: IMoviePerson
+    person: IMoviePerson;
 }

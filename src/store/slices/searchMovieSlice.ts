@@ -1,31 +1,28 @@
-import {createSlice} from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     searchValue: '',
     searchType: '1-4',
-    hiddenSearchedMovies: false
-}
+    hiddenSearchedMovies: false,
+};
 
 const searchMovieSlice = createSlice({
     name: 'loadMore',
     initialState,
     reducers: {
         setSearchValue: (state, action) => {
-            state.searchValue = action.payload
+            state.searchValue = action.payload;
         },
         setSearchType: (state, action) => {
-            state.searchType = action.payload
+            state.searchType = action.payload;
         },
         handleHiddenSearchedMovies: (state, action) => {
-            state.hiddenSearchedMovies = action.payload
-        }
-    }
-})
+            state.hiddenSearchedMovies = action.payload;
+        },
+    },
+});
 
-export const {
-    setSearchValue,
-    setSearchType,
-    handleHiddenSearchedMovies
-} = searchMovieSlice.actions
+export const { setSearchValue, setSearchType, handleHiddenSearchedMovies } =
+    searchMovieSlice.actions;
 
-export const searchMovieReducer = searchMovieSlice.reducer
+export const searchMovieReducer = searchMovieSlice.reducer;

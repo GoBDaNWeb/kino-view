@@ -25,7 +25,7 @@
 @media (max-width: 1550px) {
     .anime {
         padding: 0 10rem;
-        .animeList { 
+        .animeList {
             grid-template-columns: repeat(3, 1fr);
             row-gap: 35px;
         }
@@ -34,7 +34,7 @@
 @media (max-width: 1180px) {
     .anime {
         padding: 0 5rem;
-        .animeList { 
+        .animeList {
             grid-template-columns: repeat(3, 1fr);
             row-gap: 35px;
         }
@@ -43,7 +43,7 @@
 @media (max-width: 960px) {
     .anime {
         padding: 0 5rem;
-        .animeList { 
+        .animeList {
             grid-template-columns: repeat(2, 1fr);
             row-gap: 35px;
         }
@@ -52,7 +52,7 @@
 @media (max-width: 675px) {
     .anime {
         padding: 0 2rem;
-        .animeList { 
+        .animeList {
             grid-template-columns: repeat(1, 1fr);
             row-gap: 35px;
         }

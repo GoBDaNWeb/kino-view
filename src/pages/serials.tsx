@@ -1,26 +1,26 @@
-// * react/next 
-import {GetStaticProps, NextPage} from 'next'
+// * react/next
+import { GetStaticProps, NextPage } from 'next';
 
 // * redux
-import { initStore } from 'store/store'
+import { initStore } from 'store/store';
 
-// * services 
-import {getSerials} from 'services/KinoviewService'
+// * services
+import { getSerials } from 'services/KinoviewService';
 
-// * components 
-import Serials from 'components/screens/Serials'
+// * components
+import Serials from 'components/screens/Serials';
 
 const SerialsPage: NextPage = () => {
-    return <Serials/>
-}
+    return <Serials />;
+};
 
 export const getStaticProps: GetStaticProps = async () => {
-    const store = initStore()
-    const state = store.getState()
-    const {filters} = state.filter;
-    const {page} = state.paginate;
-    await store.dispatch(getSerials.initiate({filters, page}))
-    return {props: {initialReduxState: store.getState()}}
-}
+    const store = initStore();
+    const state = store.getState();
+    const { filters } = state.filter;
+    const { page } = state.paginate;
+    await store.dispatch(getSerials.initiate({ filters, page }));
+    return { props: { initialReduxState: store.getState() } };
+};
 
-export default SerialsPage
+export default SerialsPage;

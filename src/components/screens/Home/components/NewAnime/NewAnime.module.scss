@@ -17,25 +17,25 @@
         width: 100%;
     }
     @media (max-width: 1550px) {
-        .animeList { 
+        .animeList {
             grid-template-columns: repeat(3, 1fr);
             row-gap: 35px;
         }
     }
     @media (max-width: 1180px) {
-        .animeList { 
+        .animeList {
             grid-template-columns: repeat(3, 1fr);
             row-gap: 35px;
         }
     }
     @media (max-width: 960px) {
-        .animeList { 
+        .animeList {
             grid-template-columns: repeat(2, 1fr);
             row-gap: 35px;
         }
     }
     @media (max-width: 675px) {
-        .animeList { 
+        .animeList {
             grid-template-columns: repeat(1, 1fr);
             row-gap: 35px;
         }

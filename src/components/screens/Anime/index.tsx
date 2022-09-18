@@ -12,7 +12,7 @@ import { useGetAnimeQuery } from 'services/KinoviewService';
 // * components
 import MovieCard from 'components/common/MovieCard';
 import Filters from 'components/common/Filters';
-import Pagination from 'components/common/Pagination';
+import Pagination from 'components/ui/Pagination';
 import Loader from 'components/ui/Loader';
 import styles from './Anime.module.scss';
 
